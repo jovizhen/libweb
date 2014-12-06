@@ -98,9 +98,9 @@ public class BorrowerServlet extends HttpServlet
 
 	private String checkOutLogin(HttpServletRequest request, HttpServletResponse response)
 	{
-		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 		try
 		{
+			int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 			Borrower borrower = service.getBorrowerManager().getEntityById(cardNo);
 			if (borrower == null)
 			{
@@ -124,9 +124,9 @@ public class BorrowerServlet extends HttpServlet
 
 	private String returnBookLogin(HttpServletRequest request, HttpServletResponse response)
 	{
-		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 		try
 		{
+			int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 			Borrower borrower = service.getBorrowerManager().getEntityById(cardNo);
 			if (borrower == null)
 			{
@@ -148,9 +148,9 @@ public class BorrowerServlet extends HttpServlet
 
 	private void showBranchList(HttpServletRequest request, HttpServletResponse response)
 	{
-		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 		try
 		{
+			int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 			Borrower borrower = service.getBorrowerManager().getEntityById(cardNo);
 			List<LibraryBranch> branchList = service.getBranchManager().findAll();
 			request.setAttribute("branchList", branchList);
