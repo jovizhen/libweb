@@ -38,12 +38,13 @@ function updateBookCopy()
 <body>
 <%@ include file="menu.jsp"%>
 <div class="container">
+<h3>Book Copy Management</h3>
 <table class="table table-hover">
 			<tr>
 				<td><b>Book Name</b></td>
 				<td><b>Branch Name</b></td>
 				<td><b>No of copies</b></td>
-				<td><b>Update No of Copies</b></td>
+				<td><b>Update</b></td>
 			</tr>
 			<%
 				for (BookCopy bookCopy : bookCopyList)

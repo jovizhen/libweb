@@ -38,7 +38,7 @@ public abstract class AbstractEntityManager<T> extends AbstractManager
 		this.baseDao = baseDao;
 	}
 
-	public void saveImp(T object) throws LibDbException, Exception
+	public void saveImp(T object) throws Exception
 	{
 		Connection connection = DBUtil.getDBConnection();
 		baseDao.setConnection(connection);

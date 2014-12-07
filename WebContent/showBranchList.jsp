@@ -50,6 +50,7 @@ function deleteBranch(id)
 </head>
 <body>
 <div class="container">
+<h3>Branch Management</h3>
 	<%
 		if (result != null)
 		{
@@ -75,8 +76,7 @@ function deleteBranch(id)
 		<td id='branch_address_<%=branch.getBranchId() %>'><%=branch.getBranchAddress() %></td>
 		<td><button type="button" class="btn btn-info" onclick="javascript:showBranchModal(<%=branch.getBranchId() %>, 
 		'<%=branch.getBranchName() %>', '<%=branch.getBranchAddress() %>');">Update</button></td>
-		<td><button type="button" class="btn btn-warning"
-							onClick="javascript:deleteBranch(<%=branch.getBranchId()%>);">Delete
+		<td><button type="button" class="btn btn-warning" onClick="javascript:deleteBranch(<%=branch.getBranchId()%>);">Delete
 						</button></td>
 		</tr>
 		<%
@@ -92,7 +92,7 @@ function deleteBranch(id)
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Update author</h4>
+						<h4 class="modal-title" id="myModalLabel">Update Branch</h4>
 					</div>
 					<div class="modal-body">
 						<form action="admin?function=UPDATE_BRANCH" method="post"

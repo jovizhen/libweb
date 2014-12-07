@@ -58,6 +58,7 @@ function showUpdateModal(id, name)
 		<%
 			}
 		%>
+		<h3>Author Management</h3>
 		<form action="admin" method="POST" name=authorListForm>
 			<table class="table table-hover">
 				<tr>
@@ -73,8 +74,7 @@ function showUpdateModal(id, name)
 					<td id="auth_<%=author.getAuthorId() %>"><%=author.getAuthorName()%></td>
 					<td><button type="button" class="btn btn-info"
 							onClick="javascript:showUpdateModal(<%=author.getAuthorId()%>, '<%=author.getAuthorName()%>');">Update</button></td>
-					<td><button type="button" class="btn btn-warning"
-							onClick="javascript:deleteAuthor(<%=author.getAuthorId()%>);">Delete
+					<td><button type="button" class="btn btn-warning" onClick="javascript:deleteAuthor(<%=author.getAuthorId()%>);">Delete
 						</button></td>
 				</tr>
 				<%
@@ -91,7 +91,7 @@ function showUpdateModal(id, name)
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Update author</h4>
+						<h4 class="modal-title" id="myModalLabel">Update Author</h4>
 					</div>
 					<div class="modal-body">
 						<form action="admin?function=UPDATE_AUTHOR" method="post"

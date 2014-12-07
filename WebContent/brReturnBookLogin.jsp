@@ -20,11 +20,10 @@
 		<%
 			}
 		%>
-		<h3>Enter Card No</h3>
+		<h3>Enter Your Card No</h3>
 		<form action="borrower?function=RETURN_BOOK_LOGIN" class="form-horizontal col-md-6"
 			method="post" role="form">
 			<div class="form-group">
-				<label for="cardNo">Card No: </label>
 				<input type="text" class="form-control" id="cardNo"
 					name="cardNo" placeholder="Enter Card No">
 			</div>

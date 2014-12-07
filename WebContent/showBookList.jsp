@@ -63,6 +63,7 @@ function deleteBook(id)
 		<%
 		}
 	%>
+	<h3>Book Management</h3>
 		<form action="admin" method="POST" name=bookListForm>
 			<table class="table table-hover">
 				<tr>
@@ -84,8 +85,7 @@ function deleteBook(id)
 							onClick="javascript:showBookModal(<%=book.getBookId()%>, '<%=book.getAuthor()!=null?book.getAuthor().getAuthorName():""%>',
 							 '<%=book.getPublisher()!=null?book.getPublisher().getPublisherName():""%>',
 							 '<%=book.getTitle()%>');">Update</button></td>
-					<td><button type="button" class="btn btn-warning"
-							onClick="javascript:deleteBook(<%=book.getBookId()%>);">Delete</button></td>
+					<td><button type="button" class="btn btn-warning" onClick="javascript:deleteBook(<%=book.getBookId()%>);">Delete</button></td>
 				</tr>
 				<%
 					}
@@ -100,12 +100,12 @@ function deleteBook(id)
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Update author</h4>
+						<h4 class="modal-title" id="myModalLabel">Update Book</h4>
 					</div>
 					<div class="modal-body">
 						<form action="admin?function=ADD_BOOK" method="post" role="form">
 							<div class="form-group">
-								<label for="title">Update book title: <mark>
+								<label for="title">Update title: <mark>
 									<span id="oldBookTitle"></span></mark></label> 
 									<input
 									type="hidden" id="bookId" name="bookId" /> <input type="text"

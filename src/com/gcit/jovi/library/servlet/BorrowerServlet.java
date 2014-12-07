@@ -1,6 +1,7 @@
 package com.gcit.jovi.library.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -167,14 +168,15 @@ public class BorrowerServlet extends HttpServlet
 		int cardNo = Integer.parseInt(request.getParameter("cardNo"));
 		int branchId = Integer.parseInt(request.getParameter("branchId"));
 		List<BookCopy> bookCopyList = service.getBookCopyManager().getBookCopyByBranch(branchId);
+		List<BookCopy> newCopyList = new ArrayList<>();
 		for (BookCopy bc : bookCopyList)
 		{
-			if (bc.getNoOfCopies() == 0)
-				bookCopyList.remove(bc);
+			if (bc.getNoOfCopies() != 0)
+				newCopyList.add(bc);
 		}
 		request.setAttribute("cardNo", cardNo);
 		request.setAttribute("branchId", branchId);
-		request.setAttribute("bookCopyList", bookCopyList);
+		request.setAttribute("bookCopyList", newCopyList);
 	}
 
 	private void showBookLoanList(HttpServletRequest request, HttpServletResponse response)

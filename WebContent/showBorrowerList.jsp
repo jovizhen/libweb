@@ -59,9 +59,11 @@ function deleteBorrower(cardNo)
 	<%
 		}
 	%>
+	<h3>Borrower Management</h3>
 	<form action="admin" method="POST" name=borrowerListForm>
 	<table class="table table-hover">
 		<tr>
+            <th>Card No</th>  		
 			<th>Borrower Name</th>
 			<th>Borrower Address</th>
             <th>Borrower Phone</th>
@@ -73,13 +75,13 @@ function deleteBorrower(cardNo)
 			{
 		%>
 		<tr id="borrower_row_<%=borrower.getCardNo() %>">
+		<td><%=borrower.getCardNo() %></td>
 		<td id="borrower_name_<%=borrower.getCardNo() %>"><%=borrower.getName() %></td>
 		<td id="borrower_add_<%=borrower.getCardNo() %>"><%=borrower.getAddress() %></td>
 		<td id="borrower_phone_<%=borrower.getCardNo() %>"><%=borrower.getPhone() %></td>
 		<td><button type="button" class="btn btn-info" onClick="javascript:showBorrowerModal(<%=borrower.getCardNo() %>, 
-		'<%=borrower.getName() %>', '<%=borrower.getAddress() %>', <%=borrower.getPhone() %>);">Update</button></td>
-		<td><button type="button" class="btn btn-warning"
-							onClick="javascript:deleteBorrower(<%=borrower.getCardNo()%>);">Delete
+		'<%=borrower.getName() %>', '<%=borrower.getAddress() %>', '<%=borrower.getPhone() %>');">Update</button></td>
+		<td><button type="button" class="btn btn-warning" onClick="javascript:deleteBorrower(<%=borrower.getCardNo()%>);">Delete
 						</button></td>
 		</tr>
 		<%
@@ -96,7 +98,7 @@ function deleteBorrower(cardNo)
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Update author</h4>
+						<h4 class="modal-title" id="myModalLabel">Update Borrower</h4>
 					</div>
 					<div class="modal-body">
 						<form action="admin?function=UPDATE_BORROWER" method="post"
@@ -109,13 +111,13 @@ function deleteBorrower(cardNo)
 									name="borrowerName" placeholder="Enter new borrower name" /> 
 							</div>
 							<div class="form-group">
-								<label for="borrowerAddress">Update borrower address: <mark><span id="oldBorrowerAddress"></span></mark>
+								<label for="borrowerAddress">Update address: <mark><span id="oldBorrowerAddress"></span></mark>
 								</label> 
 								<input type="text" class="form-control"
 									id="borrowerAddress" name="borrowerAddress" placeholder="Enter new borrower address"/> 
 							</div>
 							<div class="form-group">
-								<label for="borrowerPhone">Update borrower phone: <mark><span id="oldBorrowerPhone"></span></mark>
+								<label for="borrowerPhone">Update phone: <mark><span id="oldBorrowerPhone"></span></mark>
 								</label> 
 								<input type="text"
 									class="form-control" id="borrowerPhone" name="borrowerPhone" placeholder="Enter new borrower phone"/>

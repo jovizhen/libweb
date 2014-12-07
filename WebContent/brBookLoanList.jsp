@@ -27,6 +27,7 @@ function returnBook(bookId, branchId, cardNo)
 <body>
 	<%@ include file="menu.jsp"%>
 	<div class="container">
+	<h4>Please choose the Book you want to return:</h4>
 		<table class="table table-hover">
 			<tr>
 				<th>Book</th>

@@ -36,20 +36,21 @@
 </script>
 </head>
 <body>
-<%@ include file="menu.jsp"%>
-<div class="container">
-	<form action="Librarian" method="POST" name=manageBranchForm>
-		<table class="table table-hover">
-			<tr>
-				<td><b>Branch Name</b></td>
-				<td><b>Branch Address</b></td>
-				<td><b>Update Branches</b></td>
-				<td><b>Add Copies</b></td>
-			</tr>
-			<%
-				for (LibraryBranch branch : branchList)
-				{
-			%>
+	<%@ include file="menu.jsp"%>
+	<div class="container">
+		<h3>Branch and Book Copy Management</h3>
+		<form action="Librarian" method="POST" name=manageBranchForm>
+			<table class="table table-hover">
+				<tr>
+					<td><b>Branch Name</b></td>
+					<td><b>Branch Address</b></td>
+					<td><b>Update Branches</b></td>
+					<td><b>Book Copy Detail</b></td>
+				</tr>
+				<%
+					for (LibraryBranch branch : branchList)
+					{
+				%>
 				<tr>
 					<td id='branch_name_<%=branch.getBranchId()%>'><%=branch.getBranchName()%></td>
 					<td id='branch_address_<%=branch.getBranchId()%>'><%=branch.getBranchAddress()%></td>
@@ -57,17 +58,16 @@
 							onclick="javascript:showBranchModal(<%=branch.getBranchId()%>, 
 							'<%=branch.getBranchName()%>', '<%=branch.getBranchAddress()%>');">Edit
 							Branch</button></td>
-					<td><button type="button" class="btn btn-warning"
-							onclick="javascript:document.location.href=
-							'librarian?function=SHOW_BRANCH_COPIES&branchId=<%=branch.getBranchId()%>';">Select</button></td>
+					<td><button type="button" class="btn btn-warning" onclick="javascript:document.location.href=
+							'librarian?function=SHOW_BRANCH_COPIES&branchId=<%=branch.getBranchId()%>';">Detail</button></td>
 				</tr>
 				<%
-				}
-			%>
-		</table>
-	</form>
-	
-	<div class="modal fade" id="updateBranchModal" tabindex="-1"
+					}
+				%>
+			</table>
+		</form>
+
+		<div class="modal fade" id="updateBranchModal" tabindex="-1"
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -81,17 +81,17 @@
 						<form action="admin?function=UPDATE_BRANCH" method="post"
 							role="form">
 							<div class="form-group">
-								<label for="branchName">Update branch name: <mark><span id="oldBranchName"></span></mark>
-								</label> 
-								<input type="hidden" id="branchId" name="branchId" />
-								<input type="text" class="form-control" id="branchName"
-									name="branchName" placeholder="Enter new branch name" /> 
+								<label for="branchName">Update branch name: <mark>
+									<span id="oldBranchName"></span></mark>
+								</label> <input type="hidden" id="branchId" name="branchId" /> <input
+									type="text" class="form-control" id="branchName"
+									name="branchName" placeholder="Enter new branch name" />
 							</div>
 							<div class="form-group">
-								<label for="branchAddress">Update branch address: <mark><span id="oldBranchAddress"></span></mark>
-								</label> 
-								<input type="text" class="form-control"
-									id="branchAddress" name="branchAddress" placeholder="Enter new branch address"/> 
+								<label for="branchAddress">Update branch address: <mark>
+									<span id="oldBranchAddress"></span></mark>
+								</label> <input type="text" class="form-control" id="branchAddress"
+									name="branchAddress" placeholder="Enter new branch address" />
 							</div>
 						</form>
 					</div>
@@ -103,7 +103,7 @@
 				</div>
 			</div>
 		</div>
-</div>
+	</div>
 
 </body>
 </html>

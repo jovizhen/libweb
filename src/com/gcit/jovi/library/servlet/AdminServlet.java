@@ -40,7 +40,7 @@ public class AdminServlet extends HttpServlet
 			IOException
 	{
 		AdminFunction function = AdminFunction.valueOf(request.getParameter("function"));
-		String resultPage = "/index.jsp";
+		String resultPage = null;
 		switch (function)
 		{
 			case SHOW_AUTHOR_LIST:
@@ -136,26 +136,31 @@ public class AdminServlet extends HttpServlet
 			case ADD_AUTHOR:
 			{
 				addAuthor(request, response);
+				resultPage = "/admin?function=SHOW_AUTHOR_LIST";
 				break;
 			}
 			case ADD_PUBLISHER:
 			{
 				addPublisher(request, response);
+				resultPage = "/admin?function=SHOW_PUBLISHER_LIST";
 				break;
 			}
 			case ADD_BOOK:
 			{
 				addBook(request, response);
+				resultPage = "/admin?function=SHOW_BOOK_LIST";
 				break;
 			}
 			case ADD_BRANCH:
 			{
 				addBranch(request, response);
+				resultPage = "/admin?function=SHOW_BRANCH_LIST";
 				break;
 			}
 			case ADD_BORROWER:
 			{
 				addBorrower(request, response);
+				resultPage = "/admin?function=SHOW_BORROWER_LIST";
 				break;
 			}
 			case OPEN_NEW_BOOK:
@@ -212,7 +217,10 @@ public class AdminServlet extends HttpServlet
 		String title = request.getParameter("title");
 		int authorId = Integer.parseInt(request.getParameter("authorId"));
 		int publisherId = Integer.parseInt(request.getParameter("publisherId"));
-		Book book = new Book(bookId, title, new Author(authorId), new Publisher(publisherId));
+		Book book = new Book(bookId);
+		book.setTitle(title);
+		book.setAuthor(authorId!=-1?new Author(authorId):null);
+		book.setPublisher(publisherId!=-1?new Publisher(publisherId):null);
 		try
 		{
 			service.getBookManager().updateImp(book);

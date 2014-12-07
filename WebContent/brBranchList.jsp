@@ -16,6 +16,7 @@
 <body>
 <%@ include file="menu.jsp"%>
 <div class="container">
+<h4>Please select the library branch you want to check out from: </h4>
 <form action="admin" method="POST" name=branchListForm>
 	<table class="table table-hover">
 		<tr>

@@ -53,6 +53,7 @@ function deletePublisher(pubId)
 </head>
 <body>
 <div class="container">
+<h3>Publisher Management</h3>
 <%
 		if (result != null)
 		{
@@ -81,8 +82,7 @@ function deletePublisher(pubId)
 					<td><button type="button" class="btn btn-info" 
 					onClick="javascript:showPublisherModal(<%=publisher.getPublisherId() %>, '<%=publisher.getPublisherName() %>', 
 					'<%=publisher.getPublisherAddress() %>', '<%=publisher.getPublisherPhone() %>');">Update</button></td>
-		<td><button type="button" class="btn btn-warning"
-							onClick="javascript:deletePublisher(<%=publisher.getPublisherId()%>);">Delete
+		<td><button type="button" class="btn btn-warning" onClick="javascript:deletePublisher(<%=publisher.getPublisherId()%>);">Delete
 						</button></td>
 		</tr>
 		<%
@@ -98,26 +98,26 @@ function deletePublisher(pubId)
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Update author</h4>
+						<h4 class="modal-title" id="myModalLabel">Update Publisher</h4>
 					</div>
 					<div class="modal-body">
 						<form action="admin?function=UPDATE_PUBLISHER" method="post"
 							role="form">
 							<div class="form-group">
-								<label for="publisherName">Update publisher name: <mark><span id="oldPublisherName"></span></mark>
+								<label for="publisherName">Update name: <mark><span id="oldPublisherName"></span></mark>
 								</label> 
 								<input type="hidden" id="publisherId" name="publisherId" />
 								<input type="text" class="form-control" id="publisherName"
 									name="publisherName" placeholder="Enter new publisher name" /> 
 							</div>
 							<div class="form-group">
-								<label for="publisherAddress">Update publisher address: <mark><span id="oldPublisherAddress"></span></mark>
+								<label for="publisherAddress">Update address: <mark><span id="oldPublisherAddress"></span></mark>
 								</label> 
 								<input type="text" class="form-control"
 									id="publisherAddress" name="publisherAddress" placeholder="Enter new publisher address"/> 
 							</div>
 							<div class="form-group">
-								<label for="publisherPhone">Update publisher phone: <mark><span id="oldPublisherPhone"></span></mark>
+								<label for="publisherPhone">Update phone: <mark><span id="oldPublisherPhone"></span></mark>
 								</label> 
 								<input type="text"
 									class="form-control" id="publisherPhone" name="publisherPhone" placeholder="Enter new publisher phone"/>
